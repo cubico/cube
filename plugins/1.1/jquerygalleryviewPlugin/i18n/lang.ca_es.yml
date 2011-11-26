@@ -1,0 +1,4 @@
+all:
+  imagegallery: 
+    notfound: No s'ha trobat cap imatge
+    image: Imatge

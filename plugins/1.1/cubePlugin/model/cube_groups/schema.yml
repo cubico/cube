@@ -1,0 +1,13 @@
+table: cube_groups
+class: Cube_groups
+database: test
+  #column: {type: , phpname: , params: { format: %d/%m/%Y %H:%M:%S, null: , default: , comment:  }, fk: , pk: , autonumeric: , sequence: }
+columns:
+  cube_grp_id: { type: numeric, pk: true, params: { null: false }, phpname: CubeGrpId, autonumeric: true, sequence: maximo }
+  cube_grp_name: { type: varchar, params: { null: false }, phpname: CubeGrpName }
+  cube_grp_main: { type: varchar, params: { default: 'Y' }, phpname: CubeGrpMain }
+querys: 
+  #queryName: query {table} {sequence}
+  count: "select count(cube_grp_id) {count} from {table}"
+  maximo: SELECT ifnull(max(cube_grp_id+1),1) {sequence} FROM {table}
+  doSelectTable: "select cube_grp_id, cube_grp_name, cube_grp_main from {table}"

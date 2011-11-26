@@ -1,0 +1,44 @@
+changepass:
+  class: cubeGenerator
+  package: engine.drivers.generators
+  param:
+    layout: generator
+  fields:
+    password:
+      view: [input/password, {js: {style: "width:140px;"}}]
+      validator: {required: true}
+      label: Clau d'Accés
+    password2:
+      view: [input/password, {js: {style: "width:140px;"}}]
+      validator: {required: true}
+      label: Repeteix Clau d'Accés
+    login:
+      view: [input/hidden]
+    hash:
+      view: [input/hidden]
+    submit:
+      view: [input/submit, {type: button, value: _echo(send)}]
+    reset:
+      view: [input/reset, {type: button, value: _echo(clean)}]
+  form:
+    params:
+      name: changeForm
+      action: validation/sendchangepassword
+      #method: POST
+      #enctype: text/html
+    render: 
+      new: |
+        {submit}
+      edit: |
+        {login}.{hash}
+        |<span class="reportedcontent_content archived_report_blue">Aquesta clau també serveix per accedir a l'ordinador al iniciar la màquina</span>|
+        |<br/>|
+        |<h3>Canvia la clau d' accés de xarxa</h3>|
+        |<br/><br/>|
+        |{password}|{password2}|{submit}|
+        |<br/>|
+    actions: | 
+      {submit}.#3#.{reset}    
+  list:
+    render:
+    fields: 

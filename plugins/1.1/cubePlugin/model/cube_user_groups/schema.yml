@@ -1,0 +1,13 @@
+table: cube_user_groups
+class: Cube_user_groups
+database: test
+  #column: {type: , phpname: , params: { format: %d/%m/%Y %H:%M:%S, null: , default: , comment:  }, fk: , pk: , autonumeric: , sequence: }
+columns:
+  cube_usg_user: { type: numeric, params: { null: false }, phpname: CubeUsgUser, fk: Cube_users.CubUsrId }
+  cube_usg_group: { type: numeric, params: { null: false }, phpname: CubeUsgGroup, fk: Cube_groups.CubeGrpId }
+  cube_usg_userdel: { type: numeric, phpname: CubeUsgUserdel, fk: Cube_users.CubUsrId }
+  cube_usg_datedel: { type: date, params: { format: '%Y-%m-%d %H:%M:%S' }, phpname: CubeUsgDatedel }
+querys: 
+  #queryName: query {table} {sequence}
+  count: "select count() {count} from {table}"
+  doSelectTable: "select cube_usg_user, cube_usg_group, cube_usg_userdel, cube_usg_datedel from {table}"

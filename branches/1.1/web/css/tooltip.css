@@ -1,0 +1,19 @@
+.tooltip { 
+    display:none; 
+    background:transparent url(/img/black_arrow2.png); 
+    font:12px Verdana, Arial; 
+    height:70px; 
+    width:160px; 
+    padding:35px 25px 25px 25px; 
+    color:#fff;     
+}
+
+.tooltip2 { 
+    display:none; 
+    background-color:#fff; 
+    border:1px solid #333; 
+    padding:3px; 
+    font-size:13px; 
+    -moz-box-shadow: 2px 2px 11px #666; 
+    -webkit-box-shadow: 2px 2px 11px #666; 
+}

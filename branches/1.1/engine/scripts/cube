@@ -1,0 +1,8 @@
+#!/bin/bash
+FILE=./engine/scripts/scripts.php
+if [ ! -f $FILE ];
+then
+   echo "This current dir is not a valid cube project."
+else
+ php $FILE $0 $*
+fi

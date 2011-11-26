@@ -1,0 +1,7 @@
+all:
+  logfile: vsms.log
+  # add hosts into the application at smsPlugin tag like this:
+  # smsPlugin:
+  #   hostname:
+  #     user: username 
+  #     password: password

@@ -1,0 +1,23 @@
+#Options -Indexes
+ErrorDocument 500 /aplicacions.php/default/error500
+#ErrorDocument 403 /aplicacions.php/default/error403
+ErrorDocument 404 /aplicacions.php/default/error404
+
+header append P3P: 'CP="CAO DSP COR CURa ADMa DEVa OUR IND PHY ONL UNI COM NAV INT DEM PRE"'
+
+#<IfModule mod_rewrite.c>
+  ## Mac bug: $_SERVER['SCRIPT_URI'] is activated by mod_rewrite, but not in .htaccess. Configure your host with "RewriteEngine On" too 
+  RewriteEngine On
+
+  # uncomment the following line, if you are having trouble
+  # getting no_script_name to work
+  RewriteBase /
+  
+  RewriteCond %{REQUEST_FILENAME} !-d 
+  RewriteCond %{REQUEST_FILENAME} !-f [OR]
+  RewriteCond %{REQUEST_FILENAME} ^(.*)\.(php|html|htm)$ [NC]
+  
+  RewriteRule ^([^\.]*.php)\/(.*)$ $1?qfRoute=$2 [NC,QSA,L]
+  
+#</IfModule>
+#http://www.zytrax.com/tech/web/env_var.htm

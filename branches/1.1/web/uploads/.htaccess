@@ -1,0 +1,13 @@
+# para no ver contenido de carpeta
+Options -Indexes
+
+
+RewriteEngine on
+# si accedemos directamente por url de navegador (no hay referer)
+RewriteCond %{HTTP_REFERER} ^$
+# todo lo que sea tipo imagen se redirige a pagina de error
+RewriteRule (.*)\.(png|gif|jpeg|bmp|jpg)$ /aplicacions.php/default/error403Upload [NC,R]
+
+# todo lo que sea tipo imagen se redirige a otra imagen predefinida de error
+#RewriteCond %{REQUEST_URI} !/uploads/coco.jpg$
+#RewriteRule (.*)\.(png|gif|jpeg|bmp|jpg)$ /uploads/coco.jpg [R,NC,L]  

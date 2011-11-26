@@ -1,0 +1,35 @@
+#consolelogger {background:#aaa;position:absolute;top:0px;left:10px;margin:10px 0 0 0;z-index:9999;}
+#consolelogger #divlogger .logger,#buttonlogger.logger {font:11px Arial;vertical-align:middle;margin:0px;padding:3px;border-top:1px solid #aaa;border-right:1px solid #aaa;}
+#consolelogger #divlogger .link {cursor:pointer;width:16px;height:16px;background-position:center}
+#consolelogger #divlogger .console {font:italic 16px Georgia, serif;text-transform: capitalize;}
+#consolelogger #divlogger .column {margin: 0;overflow: hidden;float: left;display: inline;}
+#consolelogger #divlogger .linkh {cursor:pointer;width:16px;height:16px;float:right;border-bottom:1px solid #999;border-left:1px solid #bbb;background-position:center}
+#consolelogger #divlogger .linkh:hover {cursor:pointer;border-bottom:1px solid #bbb;border-left:1px solid #999;}
+#consolelogger #divlogger .row {margin: 0 auto;overflow: hidden;}
+#consolelogger #divlogger .title {background:#9F0C0C;color:#fff;}
+#consolelogger #divlogger .title2 {background:#7684FF;color:#eff;}
+#consolelogger #divlogger .par {background:#eee;}
+#consolelogger #divlogger .impar {background:#ddd;}
+#consolelogger #divlogger .item {background-image:none;}
+#consolelogger #divlogger .header {clear:both;display:block;}
+#consolelogger #divlogger .icon {width:16px;height:16px;background-position:center;}
+#consolelogger #divlogger .clear{width:16px;height:16px;border:0px;}
+#consolelogger #divlogger div .reset {background-image: url(/css/icon/arrow_circle_225.png);background-repeat:no-repeat;}
+#consolelogger #divlogger div .main {background-image: url(/css/icon/target.png);cursor:pointer;width:16px;height:16px;margin: 0 20px 0 0;float:right;border-bottom:1px solid #999;border-left:1px solid #bbb;background-position:center;background-repeat:no-repeat;}
+#consolelogger #divlogger div .route {background-image: url(/css/icon/equalizer.png);background-repeat:no-repeat;}
+#consolelogger #divlogger div .model {background-image: url(/css/icon/database.png);background-repeat:no-repeat;}
+#consolelogger #divlogger div .view {background-image: url(/css/icon/color.png);background-repeat:no-repeat;}
+#consolelogger #divlogger div .log {background-image: url(/css/icon/bell.png);background-repeat:no-repeat;}
+#consolelogger #divlogger div .plugin {background-image: url(/css/icon/puzzle.png);background-repeat:no-repeat;}
+#consolelogger #divlogger div .ajax {background-image: url(/css/icon/lightning.png);cursor:pointer;width:16px;height:16px;float:right;border-bottom:1px solid #999;border-left:1px solid #bbb;background-position:center;background-repeat:no-repeat;}
+#consolelogger #divlogger div .cache {background-image: url(/css/icon/gear.png);background-repeat:no-repeat;}
+#consolelogger #divlogger div .load {background-image: url(/css/icon/gear__exclamation.png);background-repeat:no-repeat;}
+#consolelogger #divlogger div .forward {background-image: url(/css/icon/arrow_skip.png);background-repeat:no-repeat;}
+#consolelogger #divlogger div .save {background-image: url(/css/icon/disk.png);background-repeat:no-repeat;}
+#consolelogger #divlogger div .info {background-image: url(/css/icon/information.png);background-repeat:no-repeat;}
+#consolelogger #divlogger div .error {background-image: url(/css/icon/exclamation.png);background-repeat:no-repeat;}
+#consolelogger #divlogger div .success {background-image: url(/css/icon/tick.png);background-repeat:no-repeat;}
+#consolelogger #divlogger div .form {background-image: url(/img/css/notebook.png);background-repeat:no-repeat;}
+#consolelogger #divlogger div .trigger {background-image: url(/css/icon/flag.png);background-repeat:no-repeat;}
+#consolelogger #divlogger div .item {background-image:none;}
+#consolelogger #divlogger div.row div.logger:hover {border-top:1px solid #999;border-right:1px solid #bbb;}

@@ -1,0 +1,4 @@
+all:
+  mail:
+    smtpHost: localhost
+    smtpPort: 25

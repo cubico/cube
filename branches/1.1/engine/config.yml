@@ -1,0 +1,114 @@
+all:
+  # extend database label with databases.yml file and all:databasename configs.
+  database:
+    test:
+      driver: SqlitePDO
+      package: drivers.db.sqlitePDO
+      schema: /workspace/proyectos/cube/plugins/cubePlugin/lib/cubetest.sqlite
+      # encoding: The encoding of return values. It's not sending values encoded to db!
+      encoding: UTF-8
+      # dateformat: The send format used by database
+      dateformat: %Y-%m-%d %H:%M:%S
+    example_ldap:
+      driver: LdapAD
+      package: drivers.db.ldapad
+      sid: exldap
+      host: [host1,host2]
+      username: user
+      password: pass
+      schema: basedn
+      encoding: UTF-8
+      dateformat: %Y-%m-%d %H:%M:%S
+    example_mysql:
+      driver: MysqlPDO
+      package: drivers.db.my
+      sid: exmy
+      host: localhost
+      username: user
+      password: pass
+      schema: cube
+      encoding: UTF-8
+      dateformat: %Y-%m-%d %H:%M:%S
+    example_oci:
+      driver: Oci
+      package: drivers.db.oci
+      sid: exoci
+      host: |
+        (DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = 127.0.0.1)(PORT = 1521)))
+        (CONNECT_DATA =(SID = EXOCI)))
+      username: user
+      password: name
+      encoding: SPAIN.WE8MSWIN1252
+      dateformat: %d/%m/%Y %H:%M:%S
+  # All filters must be created here (on/off)
+  filters:
+    init:
+      class: initFilter
+      package: plugins.cubePlugin.filter.initFilter
+      enabled: on
+    security:
+      class: securityFilter
+      package: plugins.cubePlugin.filter.securityFilter
+      enabled: on
+    control:
+      class: controlFilter
+      package: plugins.cubePlugin.filter.controlFilter
+      enabled: on
+    view:
+      class: viewFilter
+      package: plugins.cubePlugin.filter.viewFilter
+      enabled: on
+    render:
+      class: renderFilter
+      package: plugins.cubePlugin.filter.renderFilter
+      enabled: on
+  view:
+    http_metas:
+      content-type: text/html; charset=UTF-8; charset=UTF-8
+    metas:
+      description:  cube project
+      keywords:     cube, project
+      language:     ca
+      robots:       index, follow
+    has_layout:     on
+    layout:         default
+    javascripts: 
+      - /js/jquery/jquery-1.5.1.min.js
+      - /js/init.js
+      - /js/main.js
+    stylesheets: [/css/main.css]
+  settings:
+    version: '1.1'
+    simple_cache:
+      path: /cache/simplecache
+      enabled: on
+    secureServers: [cube]
+    i18n:
+      cube_lang: ca_es
+      default_lang: ca_es
+      default_locale: [ca_ES@euro, ca_ES, ca, es]
+      default_timezone: Europe/Madrid
+      enabled: on
+    enabled_modules: [default]
+    logs:
+      # if debug, automatically on
+      enabled: on
+    uploadify:
+      scriptPath: '/js/uploadify/'
+      folder: '/uploads'
+      cancelImg: '/js/uploadify/cancel.png'
+      default_multi: false
+      default_auto: true
+      button_text: "Selecciona..."
+      button_description: "button:uploadify:description"
+      error_max_updloads: "button:uploadify:maxuploads" 
+      maxUploadFiles: 3
+    filters: 
+      default_packages: [plugins.cubePlugin.filter.*]
+    views:
+      # TODO: template de generadores, mirar en model.class.php - generate (319)
+      generator_template: default
+      # ----
+      global_template: default
+      global_template_param: viewer
+      global_template_print_value: print

@@ -1,0 +1,38 @@
+table: LDAP_USERS
+class: Aduser
+database: ldap
+  #column: {type: , phpname:, params: { format: %d/%m/%Y %H:%M:%S } ,fk: ,pk: , autonumeric:, sequence: }
+columns:
+  samaccountname: { type: varchar, size: 9 , params: { null: false}, phpname: Nif, pk: true }
+  samaccounttype: { type: varchar, size: 9 , params: { null: false}, phpname: Tipus}
+  objectcategory: { type: varchar, size: 9 , params: { null: false}, phpname: ObjCateg}
+  objectclass: { type: varchar, size: 9 , params: { null: false}, phpname: ObjClasse}
+  primarygroupid: { type: varchar, size: 9 , params: { null: false}, phpname: PrimaryGroupId}
+  distinguishedname: { type: varchar, size: '25', params: { null: false }, phpname: Dn }
+  title: { type: varchar, size: '25', params: { null: false }, phpname: SituacioLaboral }
+  cn: { type: varchar, size: '25', params: { null: false }, phpname: NomComplet }
+  givenname: { type: varchar, size: '25', params: { null: false }, phpname: NomPila }
+  sn: { type: varchar, size: '25', params: { null: true }, phpname: Cognoms}
+  pager: { type: varchar, size: '50', params: { null: true }, phpname: UltimAccesIntra }
+  mail: { type: varchar, size: '50', params: { null: true }, phpname: Email }
+  telephonenumber: { type: varchar, size: '15', params: { null: false }, phpname: Telefon }
+  displayname: { type: varchar, size: '50', params: { null: true }, phpname: Nom }
+  useraccountcontrol: { type: varchar, size: '50', params: { null: true }, phpname: AccountControl }
+  homephone: { type: varchar, size: '50', params: { null: true }, phpname: HashLogin }
+  mobile: { type: varchar, size: '50', params: { null: true }, phpname: Mobil }
+  #otherhomephone: { type: varchar, size: '500', params: { null: true }, phpname: Aplicacions }
+  info: { type: varchar, size: '1000', params: { null: true }, phpname: Aplicacions }
+  otherpager: { type: varchar, size: '500', params: { null: true }, phpname: Relacionats }
+  wwwhomepage: { type: varchar, size: '500', params: { null: true }, phpname: UpServeiAccesibles }
+  physicaldeliveryofficename: { type: varchar, size: '500', params: { null: true }, phpname: UpServeiPrincipal }
+  description: { type: varchar, size: '500', params: { null: true }, phpname: Titulacio }
+  othertelephone: { type: varchar, size: '500', params: { null: true }, phpname: AutoValidacioExterna }
+  url: { type: varchar, size: '500', params: { null: true }, phpname: UpServeiAppAccesibles }
+  # buildInfo: (UpServeiAccesibles) -> UpServeiAppAccesibles (.getDefaultUpServei, .getUpServeis .getPrivileges)
+  pwdlastset: { type: varchar, size: '500', params: { null: true }, phpname: DataUltimPassword }
+  userpassword: { type: varchar, size: '500', params: { null: true }, phpname: Password }
+querys:
+  #queryName: query {table} {sequence}
+  count: "select count(*) {count} from {table}"
+  #doSelectTable: "select * from {table}
+  #//Departament

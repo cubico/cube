@@ -1,0 +1,39 @@
+all:
+  settings:
+    i18n:
+      default_lang: ca_es
+      enabled: true
+  mail:
+    smtpHost: localhost
+    smtpPort: 25
+  errorpages:
+    imagespath: /img/errorpages/
+    icon: 
+      e404: /img/mant-emo/sorry.png
+      e500: /img/mant-emo/puzzled.png
+      e403: /img/mant-emo/cry.png
+      e403u: /img/mant-emo/despise.png
+      e404d: /img/mant-emo/painful.png
+      edb: /img/mant-emo/painful.png
+    options:  
+      - 
+        link: javascript:history.go(-1);
+        text: Anar a la plana anterior
+      -
+        link: /
+        text: Anar a la plana principal
+      -
+        link: mailto:toni@monotonic.es
+        text: Contactar amb l'administrador
+      -
+        link: javascript:alert('Era el '+Math.round(Math.random()*10)+' ?');
+        text: Endivinar un número de l'1 al 10
+  filters:
+    init: ~ 
+    log:
+      enabled: off
+    render: ~
+  routing:
+    errorpage:
+      url: "/:module/:action/:error"
+      param: { module: default }

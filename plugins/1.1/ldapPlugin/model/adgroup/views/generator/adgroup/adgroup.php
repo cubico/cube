@@ -1,0 +1,4 @@
+{samaccountname}
+{description}
+{info}
+

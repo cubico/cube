@@ -1,0 +1,4 @@
+all: 
+  validation: Validació d'usuari
+  form:
+    infologin: "Introdueix usuari i clau d' accés de xarxa per veure les aplicacions que tens al teu perfil:"

@@ -1,0 +1,15 @@
+table: LDAP_GROUPSUSER
+class: Adgroupuser
+database: ldap
+  #column: {type: , phpname:, params: { format: %d/%m/%Y %H:%M:%S } ,fk: ,pk: , autonumeric:, sequence: }
+columns:
+  samaccountname: { type: varchar, size: 9 , params: { null: false}, phpname: Group, pk: true, fk: Adgroup.Id }
+  user: { type: varchar, size: 9 , params: { null: false}, phpname: User, pk: true,  fk: Aduser.Nif }
+  samaccounttype: { type: varchar, size: 9 , params: { null: false}, phpname: Tipus}
+  #distinguishedname: { type: varchar, size: 9 , params: { null: false}, phpname: OUInfo}
+  objectcategory: { type: varchar, size: 9 , params: { null: false}, phpname: ObjCateg}
+querys:
+  #queryName: query {table} {sequence}
+  count: "select count(*) {count} from {table}"
+  #doSelectTable: "select * from {table}
+  #//Departament

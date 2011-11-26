@@ -1,0 +1,18 @@
+table: LDAP_GROUPS
+class: Adgroup
+database: ldap
+  #column: {type: , phpname:, params: { format: %d/%m/%Y %H:%M:%S } ,fk: ,pk: , autonumeric:, sequence: }
+columns:
+  samaccountname: { type: varchar, size: 9 , params: { null: false}, phpname: Id, pk: true }
+  description: { type: varchar, size: 9 , params: { null: false}, phpname: Descrip }
+  info: { type: varchar, size: 9 , params: { null: false}, phpname: Info }
+  #distinguishedname: { type: varchar, size: 9 , params: { null: false}, phpname: OUInfo}
+  objectcategory: { type: varchar, size: 9 , params: { null: false}, phpname: ObjCateg}
+  samaccounttype: { type: varchar, size: 9 , params: { null: false}, phpname: Tipus}
+  whencreated: { type: varchar, size: 9 , params: { null: false}, phpname: DataCreacio}
+  whenchanged: { type: varchar, size: 9 , params: { null: false}, phpname: DataModificacio}
+querys:
+  #queryName: query {table} {sequence}
+  count: "select count(*) {count} from {table}"
+  #doSelectTable: "select * from {table}
+  #//Departament

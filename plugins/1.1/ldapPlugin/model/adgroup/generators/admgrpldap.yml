@@ -1,0 +1,136 @@
+admgrpldap:
+  class: cubeGenerator
+  package: engine.drivers.generators
+  param:
+    layout: generator
+  fields:
+    samaccountname:
+      view: [input/text, {js: style="width:72px;" }]
+      validator: {required: true, maxlength: 9 }
+      credentials:
+      parameters: {casesensitive: false, autolike: true}
+      assignTo: Adgroup.Id
+      label: Id
+    description:
+      view: [input/text, {js: style="width:72px;" }]
+      validator: {required: true, maxlength: 9 }
+      credentials:
+      parameters: {casesensitive: false, autolike: true}
+      assignTo: Adgroup.Descrip
+      label: Descrip
+    info:
+      view: [input/text, {js: style="width:72px;" }]
+      validator: {required: true, maxlength: 9 }
+      credentials:
+      parameters: {casesensitive: false, autolike: true}
+      assignTo: Adgroup.Info
+      label: Info
+    gofilter:
+      view: [input/button, {img: /img/icon/funnel.png, value: _echo(gofilter), js: {onclick: $(this).parents('form').submit();}}]
+      credentials:
+    clearfilters:
+      view: [input/button, {img: /img/icon/arrow_circle_135.png, type: button, value: _echo(button:clear:filters), action: clearfilters}]
+  actions:  
+    submit:
+      view: [input/button, {img: /img/icon/disk_black.png, value: _echo(submit), js: {onclick: document.adgroupAdmgrpldapForm.submit();}}]
+      credentials:  
+    reset:
+      view: [input/reset, {img: /img/icon/arrow_circle.png, value: _echo(reset), js: {onclick: document.adgroupAdmgrpldapForm.reset();}}]
+      credentials:
+    new:
+      view: [input/button, {img: /img/icon/wand.png, type: button, value: _echo(new), action: new }]
+      credentials: [!:new]
+    list:
+      view: [input/button, {img: /img/icon/menu.png, class: green_button, value: _echo(list), action: list}]
+      credentials:
+    print: 
+      view: [input/button, {img: /img/icon/printer.png, class: orange_button, value: _echo(button:printversion), js: {onclick: "window.open(window.location.pathname+$.query.set('viewer','print').toString());" }}]
+      credentials:
+    pdflist:
+      view: [input/button, {img: /img/crystal/16x16/mimetypes/pdf-document.png, class: orange_button, value: _echo(button:pdfversion-list), js: {onclick: "window.open(window.location.pathname+$.query.set('viewer','pdf-l').toString());" }}]
+      credentials:
+    xlslist:
+      view: [input/button, {img: /img/icon/document_excel.png, class: orange_button, value: _echo(button:xlsversion-list), js: {onclick: "window.open(window.location.pathname+$.query.set('viewer','xls').toString());" }}]
+      credentials:
+    pdfform:
+      view: [input/button, {img: /img/crystal/16x16/mimetypes/pdf-document.png, class: orange_button, value: _echo(button:pdfversion-form), js: {onclick: "window.open(window.location.pathname+$.query.set('viewer','pdf').toString());" }}]
+      credentials:      
+    openfilters: 
+      view: [input/button, {img: /img/icon/magnifier.png, class: green_button, value: _echo(button:open:filters), js: {onclick: "openFilters();"}}]
+    edit: 
+      view: [output/link, {title: _echo(button:edit), action: edit, img: <img src="/img/icon/card__pencil.png" />}]
+      credentials:
+    show: 
+      view: [output/link, {title: _echo(button:show), action: show, img: <img src="/img/icon/card_address.png" />}]
+      credentials:
+    deleterow: 
+      view: [output/confirmlink, {title: _echo(button:delete), action: delete, confirm: _echo(grid:delete:row), img: <img src="/img/icon/cross.png" />}]
+      credentials: 
+    delete: 
+      view: [input/confirmbutton, {img: /img/icon/cross_circle_frame.png, class: red_button, action: delete, confirm: _echo(grid:delete:item), value: _echo(button:delete) }]
+      credentials: [:edit]
+    batch_options:
+      view: [input/pulldown, {blank_option: _echo(form:list:withselection), options_values: {batchdelete: _echo(button:delete)}}]
+      credentials:
+  form:
+    layout: one_column
+    render: 
+      new: |
+        {samaccountname}
+        {description}
+        {info}
+      edit: |
+        {samaccountname}
+        {description}
+        {info}
+    actions: 
+      buttons: |
+        |{submit}|{reset}|{new}|{list}|{delete}|{print}|{pdfform}|
+      menus: |
+        -{*new}-{*list}-{*print}-{*pdfform}
+        -{*submit}-{*reset}-
+        -{*delete}-
+    params:
+      name: adgroupAdmgrpldapForm
+      action: 
+      #method: POST
+      #enctype: text/html 
+    model_order: 
+      #new:  []
+      #edit: []      
+  list:
+    layout: one_column
+    width: [15px, *]
+    #scroll: {x: off, y: 300px auto}
+    render: 
+      grid: |
+        {$samaccountname}
+        {$description}
+        {$info}
+      object: |
+        {samaccountname}
+        {description}
+        {info}
+    batch_actions: |
+      {batch_options}
+    actions: 
+      buttons: |
+        |{new}|{openfilters}|{print}|{pdflist}|{xlslist}|
+      menus: |
+        -{*new}-{*print}-
+      rows: |
+        {edit}.{show}.{deleterow}
+    # layout_filter: menu/list
+    layout_filter: list
+    filters: |
+        {samaccountname}
+        {description}
+        {info}
+        |{gofilter}|{clearfilters}|
+    pagination: {active: on, pulldown: true, min: 10, max: 100, inc: 10}
+    show_numbers: false
+    default_query: true
+    default_sort:
+    default_filter:
+    query: doSelectTable
+    

@@ -1,0 +1,5 @@
+all:
+  mail:
+    smtpHost: localhost
+    smtpPort: 25
+    systemBox: admin@localhost

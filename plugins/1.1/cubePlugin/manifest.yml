@@ -1,0 +1,7 @@
+author: Toni
+version: 1.5
+description: Módulos y acciones por defecto. También contiene las páginas de error. Debe estar siempre habilitado y en última posición porque pertenece al núcleo de Cube.
+website: http://monotonic.es
+copyright: (C) Toni 2009
+license: GNU Public License version 2
+cube_version: 2009030702

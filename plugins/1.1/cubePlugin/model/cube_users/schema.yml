@@ -1,0 +1,18 @@
+table: cube_users
+class: Cube_users
+database: test
+  #column: {type: , phpname: , params: { format: %d/%m/%Y %H:%M:%S, null: , default: , comment:  }, fk: , pk: , autonumeric: , sequence: }
+columns:
+  cub_usr_id: { type: numeric, pk: true, params: { null: false }, phpname: CubUsrId, autonumeric: true, sequence: maximo }
+  cub_usr_nickname: { type: varchar, phpname: CubUsrNickname }
+  cub_usr_name: { type: varchar, phpname: CubUsrName }
+  cub_usr_mail: { type: varchar, params: { null: false }, phpname: CubUsrMail }
+  cub_usr_active: { type: boolean, phpname: CubUsrActive }
+  cub_usr_modified: { type: date, params: { format: '%Y-%m-%d %H:%M:%S' }, phpname: CubUsrModified }
+  cub_usr_password: { type: varchar, params: { null: false }, phpname: CubUsrPassword }
+  cub_usr_last_login: { type: date, params: { format: '%Y-%m-%d %H:%M:%S' }, phpname: CubUsrLastLogin }
+querys: 
+  #queryName: query {table} {sequence}
+  count: "select count(cub_usr_id) {count} from {table}"
+  maximo: SELECT ifnull(max(cub_usr_id+1),1) {sequence} FROM {table}
+  doSelectTable: "select cub_usr_id, cub_usr_nickname, cub_usr_name, cub_usr_mail, cub_usr_active, cub_usr_modified, cub_usr_password, cub_usr_last_login from {table}"

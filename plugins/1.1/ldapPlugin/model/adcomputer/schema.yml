@@ -1,0 +1,18 @@
+table: LDAP_COMPUTERS
+class: Adcomputer
+database: ldap
+  #column: {type: , phpname:, params: { format: %d/%m/%Y %H:%M:%S } ,fk: ,pk: , autonumeric:, sequence: }
+columns:
+  objectcategory: { type: varchar, size: 9 , params: { null: false}, phpname: ObjCateg}
+  name: { type: varchar, size: 9 , params: { null: false}, phpname: Name,  pk: true }
+  cn: { type: varchar, size: 9 , params: { null: false}, phpname: Cn}
+  displayname: { type: varchar, size: 9 , params: { null: false}, phpname: DisplayName}
+  description: { type: varchar, size: 9 , params: { null: false}, phpname: Description}
+  distinguishedname: { type: varchar, size: 9 , params: { null: false}, phpname: Dn}
+  operatingsystem: { type: varchar, size: 9 , params: { null: false}, phpname: OS }
+  operatingsystemservicepack: { type: varchar, size: 9 , params: { null: false}, phpname: OSServicePack }
+querys:
+  #queryName: query {table} {sequence}
+  count: "select count(*) {count} from {table}"
+  #doSelectTable: "select * from {table}
+  #//Departament

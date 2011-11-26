@@ -1,0 +1,18 @@
+all:
+  settings:
+    i18n:
+      default_lang: ca_es
+      enabled: on
+  view:
+    http_metas:
+      content-type: text/html; charset=UTF-8
+    metas:
+      title:        Plugin admin
+      description:  cube project
+      keywords:     cube, project
+      language:     xx
+      robots:       index, follow
+      #stylesheets:    []
+      #javascripts:    []
+    has_layout:     on
+    layout:         default

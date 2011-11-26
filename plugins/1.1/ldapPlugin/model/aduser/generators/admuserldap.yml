@@ -1,0 +1,225 @@
+admuserldap:
+  class: cubeGenerator
+  package: engine.drivers.generators
+  param:
+    layout: generator
+  fields:
+    samaccountname_f:
+      view: [input/text, {js: style="width:72px;" }]
+      validator: {required: true, maxlength: 9 }
+      credentials:
+      parameters: {casesensitive: true, autolike: right}
+      assignTo: Aduser.Nif
+      label: Nif
+    samaccountname:
+      view: [input/hidden]
+      validator:
+      credentials:
+      assignTo: Aduser.Nif
+      #parameters: {for_through_class: true}
+      label: Nif
+    cn:
+      view: [input/text, {js: style="width:200px;" disabled="disabled"}]
+      validator: 
+      credentials:
+      parameters: {casesensitive: false, autolike: true}
+      assignTo: Aduser.NomComplet
+      label: Nom Complet
+    cn_f:
+      view: [input/text, {js: style="width:200px;"}]
+      validator: 
+      credentials:
+      parameters: {casesensitive: false, autolike: true}
+      assignTo: Aduser.NomComplet
+      label: Nom Complet
+    givenname:
+      view: [input/text, {js: style="width:200px;" }]
+      validator: {required: true, maxlength: 25 }
+      credentials:
+      parameters: {casesensitive: false, autolike: true}
+      assignTo: Aduser.Nom
+      label: Nom
+    sn:
+      view: [input/text, {js: style="width:200px;" }]
+      validator: {maxlength: 25 }
+      credentials: 
+      parameters: {casesensitive: false, autolike: true}
+      assignTo: Aduser.Cognoms
+      label: Cognoms
+    cognom1:
+      view: [input/text, {js: style="width:100px;" }]
+      validator: {maxlength: 25 }
+      credentials: 
+      #parameters: {casesensitive: false, autolike: true}
+      #assignTo: Aduser.Cognoms
+      label: Cognom1
+    cognom2:
+      view: [input/text, {js: style="width:100px;" }]
+      validator: {maxlength: 25 }
+      credentials: 
+      #parameters: {casesensitive: false, autolike: true}
+      #assignTo: Aduser.Cognoms
+      label: Cognom2
+    mail:
+      view: [input/text, {js: style="width:200px;" disabled="disabled"}]
+      validator: {maxlength: 50 }
+      credentials:
+      parameters: {casesensitive: true, autolike: true}
+      assignTo: Aduser.Email
+      label: Email
+    displayname:
+      view: [input/text, {js: style="width:200px;" disabled="disabled"}]
+      validator: {maxlength: 50 }
+      credentials:
+      parameters: {casesensitive: false, autolike: true}
+      assignTo: Aduser.NomDisplay
+      label: Nom Complet
+    useraccountcontrol:
+      view: [input/text, {js: style="width:40px;" }]
+      validator: {maxlength: 50 }
+      credentials:
+      #parameters: {casesensitive: false, autolike: true}
+      assignTo: Aduser.AccountControl
+      label: Control
+    useraccountcontrol_f:
+      #view: [input/pulldown, {options_grid: true, blank_option: 'Selecciona...', peerMethod: {method: Aduser.getAccountControlVars} }]
+      view: [input/pulldown, {options_grid: false, blank_option: 'Selecciona...', options_values: {'a':'Activat', 'b': 'Desactivat'}}]
+      validator: {maxlength: 50 }
+      credentials:
+      #parameters: {casesensitive: false, autolike: true}
+      #assignTo: Aduser.AccountControl
+      label: Control
+    telephonenumber:
+      view: [input/text, {js: style="width:120px;" }]
+      validator: {required: true, maxlength: 15 }
+      parameters: {casesensitive: true, autolike: true}
+      credentials:
+      assignTo: Aduser.Telefon
+      label: Telefon
+    grups:
+      view: [input/doublelist, {multiple: true, sort: true, filters: true, js: style="width:250px;height:250px;"}]
+      validator: 
+      credentials: 
+      label: "Grups Intranet"
+      assignTo: Adgroup
+      parameters: {through_class: Adgroupuser, peerMethod: {method: doSelectAll, value: samaccountname, text: description }}
+    gofilter:
+      view: [input/button, {img: /img/icon/funnel.png, value: _echo(gofilter), js: {onclick: $(this).parents('form').submit();}}]
+      credentials:
+    clearfilters:
+      view: [input/button, {img: /img/icon/arrow_circle_135.png, type: button, value: _echo(button:clear:filters), action: clearfilters}]
+  actions:  
+    submit:
+      view: [input/button, {img: /img/icon/disk_black.png, value: _echo(submit), js: {onclick: document.aduserAdmuserldapForm.submit();}}]
+      credentials:  
+    reset:
+      view: [input/reset, {img: /img/icon/arrow_circle.png, value: _echo(reset), js: {onclick: document.aduserAdmuserldapForm.reset();}}]
+      credentials:
+    new:
+      view: [input/button, {img: /img/icon/wand.png, type: button, value: _echo(new), action: new }]
+      credentials: [:new]
+    list:
+      view: [input/button, {img: /img/icon/menu.png, class: green_button, value: _echo(list), action: list}]
+      credentials:
+    print: 
+      view: [input/button, {img: /img/icon/printer.png, class: orange_button, value: _echo(button:printversion), js: {onclick: "window.open(window.location.pathname+$.query.set('viewer','print').toString());" }}]
+      credentials:
+    pdflist:
+      view: [input/button, {img: /img/crystal/16x16/mimetypes/pdf-document.png, class: orange_button, value: _echo(button:pdfversion-list), js: {onclick: "window.open(window.location.pathname+$.query.set('viewer','pdf-l').toString());" }}]
+      credentials:
+    xlslist:
+      view: [input/button, {img: /img/icon/document_excel.png, class: orange_button, value: _echo(button:xlsversion-list), js: {onclick: "window.open(window.location.pathname+$.query.set('viewer','xls').toString());" }}]
+      credentials:
+    pdfform:
+      view: [input/button, {img: /img/crystal/16x16/mimetypes/pdf-document.png, class: orange_button, value: _echo(button:pdfversion-form), js: {onclick: "window.open(window.location.pathname+$.query.set('viewer','pdf').toString());" }}]
+      credentials:      
+    openfilters: 
+      view: [input/button, {img: /img/icon/magnifier.png, class: green_button, value: _echo(button:open:filters), js: {onclick: "openFilters();"}}]
+    edit: 
+      view: [output/link, {title: _echo(button:edit), action: edit, img: <img src="/img/icon/card__pencil.png" />}]
+      credentials:
+    show: 
+      view: [output/link, {title: _echo(button:show), action: show, img: <img src="/img/icon/card_address.png" />}]
+      credentials:
+    deleterow: 
+      view: [output/confirmlink, {title: 'Desactivar usuari', action: batchdelete, confirm: _echo(grid:delete:row), img: <img src="/img/icon/key__minus.png" />}]
+      credentials: 
+    activerow: 
+      view: [output/confirmlink, {title: 'Activar usuari', action: batchactivate, confirm: _echo(grid:delete:row), img: <img src="/img/icon/key__plus.png" />}]
+      credentials: 
+    delete: 
+      view: [input/confirmbutton, {img: /img/icon/cross_circle_frame.png, class: red_button, action: delete, confirm: _echo(grid:delete:item), value: _echo(button:delete) }]
+      credentials: [:edit]
+    batch_options:
+      view: [input/pulldown, {blank_option: _echo(form:list:withselection), options_values: {batchdelete: 'Desactivar usuari', batchactivate: 'Activar usuari'}}]
+      credentials:
+  form:
+    layout: one_column
+    render: 
+      new: |
+        {samaccountname}
+        |{cn}|{givenname}|{sn}|
+        |{mail}|{telephonenumber}|
+        |{grups}|
+      edit: |
+        {samaccountname}
+        #|{cn}|{givenname}|{cognom1}|{cognom2}|
+        |{displayname}|{mail}|{telephonenumber}|
+        |{grups}|
+    actions: 
+      buttons: |
+        |{submit}|{reset}|{new}|{list}|{delete}|{print}|
+      menus: |
+        -{*new}-{*list}-{*print}-{*pdfform}
+        -{*submit}-{*reset}-
+        -{*delete}-
+    params:
+      name: aduserAdmuserldapForm
+      action: 
+      #method: POST
+      #enctype: text/html 
+    model_order: 
+      #new:  []
+      #edit: []      
+  list:
+    layout: one_column
+    width: [15px, *]
+    #scroll: {x: off, y: 300px auto}
+    render: 
+      grid: |
+        {$samaccountname}
+        {$cn}
+        {$givenname}
+        {$sn}
+        {$mail}
+        {$telephonenumber}
+        {$useraccountcontrol}
+      object: |
+        {samaccountname}
+        {cn}
+        {givenname}
+        {sn}
+        {mail}
+        {telephonenumber}
+    batch_actions: |
+      {batch_options}
+    actions: 
+      buttons: |
+        |{new}|{openfilters}|{print}|{pdflist}|{xlslist}|
+      menus: |
+        -{*new}-{*print}-
+      rows: |
+        {edit}.{show}.{activerow}.{deleterow}
+    # layout_filter: menu/list
+    layout_filter: list
+    filters: |
+        |{samaccountname_f}|{cn_f}|{givenname}|{sn}|
+        |{mail}|{telephonenumber}|{useraccountcontrol_f}|
+        |{gofilter}|{clearfilters}|
+    pagination: {active: on, pulldown: true, min: 10, max: 100, inc: 10}
+    show_numbers: false
+    default_query: false
+    default_sort:
+    default_filter:
+    query: doSelectTable
+    

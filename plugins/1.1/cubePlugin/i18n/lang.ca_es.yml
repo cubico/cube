@@ -1,0 +1,200 @@
+all:
+  copyright: "Creat amb el Framework Propi - Cube - "
+  list: Veure Llistat
+  reset: Netejar Camps
+  submit: Desar
+  send: Enviar
+  search: Cercar
+  previous: Anterior
+  next: Següent
+  gohome: Anar a la plana principal
+  go: Anar
+  user: Usuari
+  password: Clau d'accés
+  gofilter: Cercar
+  new: Nou
+  total: Total
+  rows: elements
+  clean: Netejar Camps
+  image: Foto
+  enableall: Habilitar Tots
+  disableall: Deshabilitar Tots
+  validation: Validació
+  enable: Habilitar
+  disable: Deshabilitar
+  up: Pujar
+  down: Baixar
+  bottom: Final
+  top: Principi
+  tofilter: Filtrar
+  actions: Accions
+  aplications: Aplicacions
+  moreoptionsof: "Més opcions de %s:"
+  administration: Administració
+  "yes": Sí
+  "no": "No"
+  allelements: "Tots"
+  otherelements: "Cap de les anteriors"
+  fileexists: "El fitxer ja existeix. Per substituir-lo selecciona un altre a continuació:"
+  column: Columna
+  row: Fila
+  button:
+    open:
+      filters: Cercador
+    clear:
+      sort: Netejar Ordre
+      filters: Netejar Cercador
+    delete: Esborrar
+    edit: Editar
+    show: Veure
+    add: Afegir
+    deletelink: Esborrar Enllaç
+    printversion: Versió Imprimible
+    pdfversion-list: Llistat en PDF
+    xlsversion-list: Llistat en Excel
+    pdfversion-form: Fitxa en PDF
+    uploadify:
+      description: "Fes clic aquí per seleccionar els fitxers a pujar (máxim: %s fitxers amb mida %s)"
+      max_uploads: "No pots pujar més fitxers. Esborra algun de la llista."
+  grid:
+    elems_per_page: "Elements per pàgina: "
+    delete:
+      row: Esborrar aquesta fila?
+      item: Esborrar aquest element?
+  error:
+    undefined: No està definit
+    notfound: No trobat
+    error_handler: S\'ha produït un error, i el sistema no pot continuar. Posa\'t en contacte amb informàtica.
+    notunlink: "No s'ha pogut esborrar l'arxiu"
+    notselection: "No s'ha seleccionat cap element"
+    incorrect_date: "Data incorrecta"
+  validator:
+    required: "El camp és obligatori"
+    numeric: "El valor '{value}' no és númeric"
+    nonumeric: "El valor '{value}' és númeric. Es requereix NO númeric"
+    alfa: "El valor '{value}' no és alfanúmeric"
+    maxlength: "Valor més gran del permés: {validator} caràcters"
+    minlength: "Valor més petit del permés: {validator} caràcters"
+    ereg: "'{value}' no és una expressió vàlida per '{validator}'"
+    in: "'{value}' no està inclós a la llista '{validator}'"
+    restrict: "El camp només s'emmagatzemarà si existeix al llistat"
+  datagrid:
+    search: Cerca més acurada
+  file:
+    exists: El fitxer existeix
+  access:
+    public: Públic
+    private: Privat
+    loggedusers: Usuaris registrats
+  dashboard: Escriptori
+  settings: Configuració
+  logout: Tancar sessió
+  login: Validar-se
+  login_info: "L'usuari no ha estat validat encara.<br/><br/>Fes clic al botó <b>%s</b> de la dreta <br/>per introduir usuari i clau d'accés."
+  preview:
+    info: |
+      <b>Això és una previsualització del formulari.</b><br/><br/>
+      Per modificar la visualització només cal canviar el generador.<br/><br/>
+      Quan estiguis segur dels canvis pots crear l'administració fent:<br/> <i>./cube admin [params]</i>.
+  admin_plugins:
+      plugins: Plugins
+      description: Aquest és el llistat de plugins de l'entorn
+      label:
+        moreinfo: Més Informació
+        version: Versió
+        author: Autor
+        copyright: Copyright
+        licence: Llicència
+        website: Plana Web
+  model:
+    error:
+      unique: "Ja existeix un element amb aquest identificador."
+      noexists: "No s'ha actualitzat l'element perque no existeix."
+      noupdate: "No s'ha actualitzat l'element perque no existeix, o no hi ha hagut cap canvi."
+      nopks: "No s'ha trobat l'element. La operació no se ha realitzat."
+  listcount:
+    noelements: "El llistat no mostra cap element."
+    success: "El llistat conté {elements} element/s."
+  form:
+    list:
+      selection: Seleccionats
+      all: Tots els valors
+      withselection: Amb seleccionats fer...
+    title:
+      search: "Cerca més Acurada."
+      search_print: "Criteris de Visualització"
+    calendar:
+      change_date:  "Obrir calendari per modificar la data."
+    typenotdefined: "El tipus de la vista '%s' no està definit"
+    someerrors: "Hi ha errors en el formulari."
+    cmpdates: "La data final d'estudi ha de ser nul·la o major que la data d'interv. Quirúrgica."
+    savesuccess: "Formulari guardat correctament."
+    deletesuccess: "Element esborrat correctament."
+    batchdeletesuccess: "Elements esborrats correctament."
+    infologin: "Introdueix usuari i clau d' accés per validar-te:"
+    norecordo: "Demanar una altra clau d'accés (enviament de la sol·licitud al correu associat de l'usuari) "
+    infomessage: |
+      Els camps obligatoris estan marcats en <span style="color:#EF5959;">vermell</span>
+    element:
+      create: "Creació d'un nou element"
+      edit: "Edició de l'element"
+      list: "Llistat d'elements"
+      show: "Visualització de l'element"
+    validation:
+      success: "Validació correcte."
+      error: "Validació errònia. Torna a intentar-ho."
+      incorrect: "La clau d'accés és errònia. Repassa els camps."
+      inactive: "L'usuari està deshabilitat. Posat en contacte amb l'administrador del sistema."
+      notexists: "L'usuari no existeix. Comprova les dades"
+      mustchange: "L'usuari està pendent d'un canvi de clau. Si us plau, tanca la sessió de l'ordinador i torna a validar-te"
+  mail:
+    send:
+      success: "Correu enviat correctament."
+      error: "El correu no s'ha pogut enviar per algun error en l'enviament."
+  menu:
+    menus: Menús
+    administration: Administració
+    location: Estàs a...
+  database:
+    errors:
+      constraint:
+        unique: "No es pot fer l'operació perque generaria un duplicat. Repassa els camps. (error: %s)"
+      others: "No es pot fer l'operació perque s'ha produït l'error '%s' a la base de dades"
+      connection: "No hi ha connexió amb la base de dades"
+      driver: "No està instal·lat el driver '%s' que connecta amb la base de dades '%s'"
+  myip: La meva IP és %s
+  noprivileges: Sense Privilegis
+  erroroptions: Que vols fer ara?
+  error404: 
+    title:  404 - Ooops!
+    description: |
+      <b>Aquesta plana no existeix!.</b><br>
+      Revisa la URL que has posat al explorador perque aquesta plana no existeix o s'ha donat de baixa.
+  error403: 
+    title:  403 - Ooops!
+    description: |
+      <b>No tens permís per veure aquesta plana.</b><br>
+      L'adreça URL de la plana té aplicada unes restriccions que fan que no puguis veure-la.
+  error500: 
+    title:  500 - Ooops!
+    description: |
+      <b>Hi ha algun problema de configuració o programació interna.</b><br>
+      S'està produint velocitat baixa en una o vàries aplicacions, i això provoca un rendiment baix.
+      La plana, per precaució, queda inactiva temporalment.
+  error403u: 
+    title:  403 - Ooops!
+    description: |
+      <b>No pots accedir directament a aquest arxiu.</b><br>
+      L'arxiu pertany a un repositori restringit i no pots accedir al seu contingut.
+  error404d: 
+    title:  Error d'Aplicació
+    description: |
+      <b>Hi ha hagut un error a l'aplicació.</b><br>
+      Prova d'accedir més tard. Disculpeu.
+  errordb:
+    title:  Error de Base de Dades
+    description: |
+      <b>No es pot accedir a la base de dades.</b><br>
+      Prova d'accedir més tard. Disculpeu.
+  under_construction: |
+      <i>Plana en construcció</i> 

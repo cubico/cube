@@ -1,0 +1,22 @@
+all:
+  settings:
+    i18n:
+      default_lang: ca_es
+      enabled: on
+  view:
+    http_metas:
+      content-type: text/html; charset=UTF-8
+    metas:
+      title:        generate
+      description:  cube project
+      keywords:     cube, project
+      language:     ca
+      robots:       index, follow
+    #stylesheets:    []
+    #javascripts:    []
+    has_layout:     false
+    layout:         default
+  plugins:
+  security:
+    all:
+      is_secure: off

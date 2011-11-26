@@ -1,0 +1,60 @@
+loginpass:
+  class: cubeGenerator
+  package: engine.drivers.generators
+  param:
+    layout: generator
+  fields:
+    info1:
+      view:
+        - output/text
+        -
+          html: true
+          value: |
+            <h3>_echo(form:infologin)</h3><br/>
+      credentials: [-is_logged]
+    login:
+      view: [input/text, {js: {style: "width:160px;" }}]
+      validator: {required: true}
+      #credentials: [-is_logged]
+      label: {position: left, text: _echo(user), group_width: 100px}
+    password:
+      view: [input/password, {js: {style: "width:140px;", onclick: "this.value='';" }}]
+      validator: {required: true}
+      label: {position: left, text: _echo(password), group_width: 100px}
+    referer:
+      view: [input/hidden]
+    ifok:
+      view: [input/hidden]
+    scripts:
+      view: [page_elements/loginscripts]
+    submit:
+      view: [input/submit, {type: button, value: _echo(send)}]
+      label: {position: left, text: "", group_width: 50px}
+    norecordo:
+      view: [output/link, {js2: style="margin:0 0 0 220px", class2: green_button, internalname: norecordo, value: _echo(form:norecordo)}]
+      #credentials: [-is_logged, cubico]
+      credentials: [-is_logged]
+    reset:
+      view: [input/reset, {type: button, value: _echo(clean)}]
+  form:
+    params:
+      name: validationForm
+      action: validation/sendlogin
+      #method: POST
+      #enctype: text/html
+    render: 
+      new: |
+        {submit}
+      edit: |
+        |{referer}.{ifok}|{scripts}|
+        |{info1}|
+        |{login}|
+        |{password}|{submit}|
+        |<br/>|
+        #|{norecordo}|
+        |<br/>|
+    actions: | 
+      {submit}.#3#.{reset}    
+  list:
+    render:
+    fields: 
